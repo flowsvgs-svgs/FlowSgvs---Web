@@ -1,0 +1,91 @@
+
+:root{
+  --mint:#DFF8F1; --lav:#EDE9FF; --blue1:#00B0FF; --blue2:#0096FF; --ink:#0f172a;
+  --bg:linear-gradient(135deg,var(--mint),var(--lav));
+}
+*{box-sizing:border-box}
+html,body{height:100%;scroll-behavior:smooth}
+body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;color:var(--ink);background:var(--bg)}
+a{color:var(--blue2);text-decoration:none}
+a:hover{text-decoration:underline}
+.container{max-width:1200px;margin:0 auto;padding:2rem 1rem}
+
+.nav{
+  position:sticky;top:0;z-index:50;backdrop-filter:saturate(140%) blur(8px);
+  background:rgba(255,255,255,.7);border-bottom:1px solid rgba(15,23,42,.07)
+}
+.nav .container{display:flex;align-items:center;justify-content:space-between;padding:.8rem 1rem}
+.brand{display:flex;align-items:center;gap:.6rem;font-weight:700}
+.brand .logo{width:22px;height:22px}
+.menu{display:flex;gap:1rem;flex-wrap:wrap}
+.menu a{padding:.35rem .6rem;border-radius:10px}
+.menu a.active, .menu a:hover{background:rgba(0,150,255,.085)}
+
+.hero{position:relative;width:100%;aspect-ratio:2/1;border-radius:24px;overflow:hidden;background:#f7fbff;
+      box-shadow:0 10px 40px rgba(0,0,0,.08)}
+.hero .layer{position:absolute;inset:0}
+.hero video,.hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero .fade{opacity:0;transition:opacity 800ms ease}
+.hero .fade.active{opacity:1}
+.hero .safe{position:absolute;right:3vw;top:50%;transform:translateY(-50%);
+           width:min(40%,520px);height:68%;border-radius:18px;outline:2px dashed rgba(0,150,255,.25);
+           outline-offset:-8px;background:rgba(255,255,255,.06);backdrop-filter:blur(2px)}
+.overlayCopy{position:absolute;left:3vw;top:50%;transform:translateY(-50%);max-width:min(48%,620px);color:#0a2540}
+.pretitle{font-size:.9rem;letter-spacing:.06em;text-transform:uppercase;opacity:.75;margin-bottom:.4rem}
+.title{font-size:clamp(2rem,5vw,3.2rem);line-height:1.05;margin:0 0 .5rem;font-weight:800}
+.subtitle{font-size:clamp(1rem,2.2vw,1.2rem);opacity:.9;margin:0}
+
+.section{padding:4rem 0}
+h1,h2,h3{margin:0 0 .6rem}
+.lead{font-size:1.12rem;opacity:.95;max-width:74ch}
+
+.split{display:grid;grid-template-columns:1.1fr .9fr;gap:2rem;align-items:center}
+.split.reverse{grid-template-columns:.9fr 1.1fr}
+.split .mediaWrap{border-radius:18px;overflow:hidden;box-shadow:0 6px 28px rgba(0,0,0,.08);background:#f8fafc}
+.split img,.split video{width:100%;display:block;height:100%;object-fit:cover}
+
+.card{background:rgba(255,255,255,.72);border:1px solid rgba(15,23,42,.08);border-radius:18px;overflow:hidden}
+.card .pad{padding:1rem}
+.badge{display:inline-block;padding:.25rem .5rem;border:1px solid rgba(0,150,255,.25);
+       background:rgba(0,150,255,.1);border-radius:999px;font-size:.75rem;letter-spacing:.02em}
+
+.services{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}
+.service{background:rgba(255,255,255,.75);border:1px solid rgba(15,23,42,.08);border-radius:18px;overflow:hidden;display:flex;flex-direction:column}
+.carousel{position:relative;aspect-ratio:16/9;overflow:hidden;background:#f8fafc}
+.carousel img,.carousel video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .45s ease}
+.carousel .active{opacity:1}
+.carousel .nav{position:absolute;inset:auto 0 10px 0;display:flex;justify-content:center;gap:.35rem}
+.carousel .dot{width:10px;height:10px;border-radius:999px;background:rgba(15,23,42,.25);cursor:pointer}
+.carousel .dot.active{background:rgba(0,150,255,.9)}
+.service .pad{padding:1rem}
+.price{font-weight:800;font-size:1.15rem}
+.actions{margin-top:.5rem;display:flex;gap:.5rem;flex-wrap:wrap}
+.btn{appearance:none;border:1px solid rgba(15,23,42,.12);background:#fff;border-radius:12px;padding:.55rem .8rem;cursor:pointer;font-size:.9rem}
+.btn.primary{background:linear-gradient(135deg,#00B0FF,#0096FF);color:#fff;border:none}
+
+.ctaPanel{display:grid;grid-template-columns:1fr 1fr;gap:1rem;align-items:center;
+          background:radial-gradient(1200px 400px at -10% -30%, rgba(0,176,255,.18), transparent 50%), 
+                     radial-gradient(900px 300px at 110% 130%, rgba(0,150,255,.18), transparent 50%),
+                     linear-gradient(135deg, #f9fbff, #eef7ff);
+          border:1px solid rgba(15,23,42,.06); border-radius:20px; padding:1.2rem;}
+.ctaButtons{display:flex;gap:.6rem;flex-wrap:wrap}
+.ctaButtons a{display:inline-flex;align-items:center;gap:.5rem;padding:.7rem 1rem;border:1px solid rgba(15,23,42,.08);border-radius:12px;background:#fff;box-shadow:0 6px 18px rgba(0,0,0,.05);font-weight:600}
+.ctaButtons a .tag{font-size:.75rem;opacity:.7;font-weight:500}
+.ctaButtons a:hover{transform:translateY(-1px)}
+.ctaImg{border-radius:18px;overflow:hidden;box-shadow:0 6px 28px rgba(0,0,0,.08);display:flex;align-items:center;justify-content:center;min-height:220px}
+.ctaImg img,.ctaImg video{max-height:420px;width:100%;height:auto;object-fit:contain;display:block;background:linear-gradient(135deg,#ffffff,#f6fbff)}
+
+.footer{padding:2rem 1rem;text-align:center;opacity:.75}
+.footer a{color:inherit;border-bottom:1px dashed rgba(15,23,42,.3);text-decoration:none}
+
+@media (max-width:1024px){
+  .split, .split.reverse{grid-template-columns:1fr}
+  .overlayCopy{max-width:80%}
+  .services{grid-template-columns:1fr 1fr}
+  .ctaPanel{grid-template-columns:1fr}
+}
+@media (max-width:640px){
+  .services{grid-template-columns:1fr}
+  .overlayCopy{left:5vw;right:5vw;max-width:90%}
+  .hero{aspect-ratio:16/9}
+}
