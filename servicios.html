@@ -1,0 +1,99 @@
+<!doctype html><html lang="es"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>FlowSVGS — Servicios</title>
+<link rel="stylesheet" href="assets/styles.css">
+</head><body>
+<nav class="nav"><div class="container">
+  <a class="brand" href="index.html" aria-label="FlowSVGS">
+    <svg class="logo" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="11" stroke="#00B0FF" stroke-width="2"/><path d="M6 13c4.5-6 7.5-6 12 0" stroke="#0096FF" stroke-width="2" stroke-linecap="round"/></svg>
+    <span>FlowSVGS</span>
+  </a>
+  <div class="menu">
+    <a href="index.html" class="">Inicio</a>
+    <a href="quienes.html" class="">Quiénes somos</a>
+    <a href="servicios.html" class="active">Servicios</a>
+    <a href="contacto.html" class="">Contáctanos</a>
+    <a href="privacidad.html" class="">Privacidad</a>
+  </div>
+</div></nav>
+
+<main class="container">
+  <section class="section">
+    <h1>Servicios</h1>
+    <p class="lead">Tres paquetes para entregar un servicio impecable desde el día uno, con vistas y automatizaciones que encajan con tu forma de trabajar.</p>
+  </section>
+
+  <section class="section services">
+    <article class="service" id="entrenamiento">
+      <div class='carousel' data-name='entrenamiento'><img class=active src='media/img_02.png' alt='FlowSVGS media'/><img  src='media/img_03.png' alt='FlowSVGS media'/><img  src='media/img_04.png' alt='FlowSVGS media'/><div class='nav'><span class='dot active' data-i='0'></span><span class='dot' data-i='1'></span><span class='dot' data-i='2'></span></div></div>
+      <div class="pad">
+        <span class="badge">Servicio</span>
+        <h3>Plantilla de Entrenamiento Dinámica</h3>
+        <p>Planifica sesiones, semanas y bloques con vistas Board/Calendar/Timeline. Estados, checklists y progresiones. Relations y rollups para métricas (volumen, cargas, PRs) sin fórmulas locas.</p>
+        <div class="price">49€</div>
+        <div class="actions">
+          <a class="btn primary" href="#comprar-entrenamiento">Comprar</a>
+          <a class="btn" href="#demo-entrenamiento">Ver demo</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="service" id="dieta">
+      <div class='carousel' data-name='dieta'><img class=active src='media/img_16.png' alt='FlowSVGS media'/><img  src='media/img_17.png' alt='FlowSVGS media'/><img  src='media/img_05.png' alt='FlowSVGS media'/><div class='nav'><span class='dot active' data-i='0'></span><span class='dot' data-i='1'></span><span class='dot' data-i='2'></span></div></div>
+      <div class="pad">
+        <span class="badge">Servicio</span>
+        <h3>Plantilla de Dieta Inteligente</h3>
+        <p>Planner semanal de comidas con chips de macros, lista de la compra y recetas enlazadas. Cambios rápidos por temporada o disponibilidad. Todo conectado a tus clientes.</p>
+        <div class="price">49€</div>
+        <div class="actions">
+          <a class="btn primary" href="#comprar-dieta">Comprar</a>
+          <a class="btn" href="#demo-dieta">Ver demo</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="service" id="pack">
+      <div class='carousel' data-name='pack'><img class=active src='media/img_06.png' alt='FlowSVGS media'/><img  src='media/img_10.png' alt='FlowSVGS media'/><video  src='media/video_01.mp4' muted playsinline autoplay loop preload='auto'></video><div class='nav'><span class='dot active' data-i='0'></span><span class='dot' data-i='1'></span><span class='dot' data-i='2'></span></div></div>
+      <div class="pad">
+        <span class="badge">Servicio</span>
+        <h3>Pack Entreno + Dieta</h3>
+        <p>Entrenamiento y nutrición en sincronía. Calendario unificado, métricas conjuntas y automatizaciones para recordatorios y seguimiento. Menos tareas, más resultados para tus clientes.</p>
+        <div class="price">79€</div>
+        <div class="actions">
+          <a class="btn primary" href="#comprar-pack">Comprar</a>
+          <a class="btn" href="#demo-pack">Ver demo</a>
+        </div>
+      </div>
+    </article>
+  </section>
+</main>
+
+<script>
+document.querySelectorAll('.carousel').forEach(function(car){
+  var slides = Array.from(car.querySelectorAll('img, video'));
+  var dots = Array.from(car.querySelectorAll('.dot'));
+  var i = 0, t = null, D = 4800, hover = false;
+  function show(n){
+    i = (n + slides.length) % slides.length;
+    slides.forEach(function(el,idx){
+      var active = (idx===i);
+      el.classList.toggle('active', active);
+      if(el.tagName.toLowerCase()==='video'){ try{ active ? el.play() : el.pause(); }catch(e){} }
+    });
+    dots.forEach(function(d,idx){ d.classList.toggle('active', idx===i); });
+  }
+  function start(){
+    if(t) return;
+    t = setInterval(function(){ if(!hover) show(i+1); }, D);
+  }
+  function stop(){ if(t){ clearInterval(t); t=null; } }
+  dots.forEach(function(d){
+    d.addEventListener('click', function(){ show(parseInt(d.getAttribute('data-i'))); });
+  });
+  car.addEventListener('mouseenter', function(){ hover=true; });
+  car.addEventListener('mouseleave', function(){ hover=false; });
+  show(0); start();
+});
+</script>
+<footer class="footer">© FlowSVGS — Pastel minimal • Sin textos incrustados en medios • <a href="privacidad.html">Política de privacidad</a></footer>
+</body></html>

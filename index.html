@@ -1,0 +1,74 @@
+<!doctype html><html lang="es"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>FlowSVGS — Inicio</title>
+<link rel="stylesheet" href="assets/styles.css">
+</head><body>
+<nav class="nav"><div class="container">
+  <a class="brand" href="index.html" aria-label="FlowSVGS">
+    <svg class="logo" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="11" stroke="#00B0FF" stroke-width="2"/><path d="M6 13c4.5-6 7.5-6 12 0" stroke="#0096FF" stroke-width="2" stroke-linecap="round"/></svg>
+    <span>FlowSVGS</span>
+  </a>
+  <div class="menu">
+    <a href="index.html" class="active">Inicio</a>
+    <a href="quienes.html" class="">Quiénes somos</a>
+    <a href="servicios.html" class="">Servicios</a>
+    <a href="contacto.html" class="">Contáctanos</a>
+    <a href="privacidad.html" class="">Privacidad</a>
+  </div>
+</div></nav>
+
+<main class="container">
+
+  <section class="section">
+    <div class="hero" id="hero">
+      <div class="layer">
+        <video class='fade active' id='v1' src='media/video_04.mp4' poster='media/img_08.png' muted playsinline autoplay loop preload='auto'></video>
+        <video class='fade' id='v2' src='media/img_07.png' poster='media/img_09.png' muted playsinline autoplay loop preload='auto'></video>
+      </div>
+      <div class="overlayCopy">
+        <div class="pretitle">Plantillas Notion automatizadas para entrenadores</div>
+        <h1 class="title">Entrena mejor. Gestiona fácil. Haz que todo fluya.</h1>
+        <p class="subtitle">Desmárcate del Excel. Sube de nivel tu servicio y la experiencia de tus clientes.</p>
+      </div>
+      <div class="safe" title="Zona segura para titular/CTA"></div>
+    </div>
+  </section>
+
+  <section class="section split">
+    <div class="mediaWrap"><img  src='media/img_11.png' alt='FlowSVGS media'/></div>
+    <div>
+      <span class="badge">Para entrenadores personales</span>
+      <h2>Clientes de un vistazo</h2>
+      <p class="lead">Centraliza fichas, estados y progreso en una sola vista. Encuentra rápido lo que necesitas de cada cliente, sin perder tiempo ni contexto.</p>
+    </div>
+  </section>
+
+  <section class="section split reverse">
+    <div>
+      <span class="badge">Del caos al orden</span>
+      <h2>Planes claros, cero fricción</h2>
+      <p class="lead">De “hojas infinitas” a un sistema visual con Board, Calendar y Timeline. Relaciones y rollups que calculan por ti, y automatizaciones que no estorban.</p>
+    </div>
+    <div class="mediaWrap"><img  src='media/img_12.png' alt='FlowSVGS media'/></div>
+  </section>
+
+</main>
+
+<script>
+(function(){
+  var v1 = document.getElementById('v1');
+  var v2 = document.getElementById('v2');
+  if(!v1 || !v2 || !v2.src || v1.src===v2.src){ try{ v1 && v1.play(); }catch(e){} return; }
+  var showFirst = true;
+  var D = 9000;
+  function swap(){ 
+    showFirst = !showFirst;
+    if(showFirst){ v1.classList.add('active'); v2.classList.remove('active'); try{ v1.play(); v2.pause(); }catch(e){} }
+    else{ v2.classList.add('active'); v1.classList.remove('active'); try{ v2.play(); v1.pause(); }catch(e){} }
+  }
+  try{ v1.play(); v2.pause(); }catch(e){}
+  setInterval(swap, D);
+})();
+</script>
+<footer class="footer">© FlowSVGS — Pastel minimal • Sin textos incrustados en medios • <a href="privacidad.html">Política de privacidad</a></footer>
+</body></html>
